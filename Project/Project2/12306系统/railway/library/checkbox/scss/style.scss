@@ -1,0 +1,478 @@
+@import "compass/css3";
+
+/* .slideOne */
+.slideOne {
+  width: 50px;
+  height: 10px;
+  background: #333;
+  margin: 20px auto;
+  position: relative;
+  @include border-radius( 50px );
+  @include box-shadow( inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2) );
+  label {
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    cursor: pointer;
+    background: #fcfff4;
+    @include background( linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%) );
+    @include border-radius( 50px );
+    @include box-shadow( 0px 2px 5px 0px rgba(0,0,0,0.3) );
+    @include transition( all .4s ease );
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label {
+      left: 37px;
+    }  
+  }
+}
+/* end .slideOne */
+
+
+/* .slideTwo */
+.slideTwo {
+  width: 80px;
+  height: 30px;
+  background: #333;
+  margin: 20px auto;
+  position: relative;
+  @include border-radius( 50px );
+  @include box-shadow( inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2) );
+  &:after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    height: 2px;
+    width: 52px;
+    background: #111;
+    @include border-radius( 50px );
+    @include box-shadow( inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2) );
+  }
+  label {
+    display: block;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    position: absolute;
+    top: 4px;
+    z-index: 1;
+    left: 4px;
+    background: #fcfff4;
+    @include border-radius( 50px );
+    @include transition( all .4s ease );
+    @include box-shadow( 0px 2px 5px 0px rgba(0,0,0,0.3) );
+    @include background( linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%) );
+    &:after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: #333;
+      @include border-radius( 50px );
+      @include 	box-shadow( inset 0px 1px 1px rgba(0,0,0,1), 0px 1px 0px rgba(255,255,255,0.9) );
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label {
+      left: 54px;
+      &:after {
+        background: #00bf00;
+      }
+    }
+  }    
+}
+/* end .slideTwo */
+
+
+/* .slideThree */
+.slideThree {
+  width: 80px;
+  height: 26px;
+  background: #333;
+  margin: 20px auto;
+  position: relative;
+  @include border-radius( 50px );
+  @include box-shadow( inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2) );
+  &:after {
+    content: 'OFF';
+    color: #000;
+    position: absolute;
+    right: 10px;
+    z-index: 0;
+    font: 12px/26px Arial, sans-serif;
+    font-weight: bold;
+    @include text-shadow( 1px 1px 0px rgba(255,255,255,.15) );
+  }
+  &:before {
+    content: 'ON';
+    color: #00bf00;
+    position: absolute;
+    left: 10px;
+    z-index: 0;
+    font: 12px/26px Arial, sans-serif;
+    font-weight: bold;
+  }
+  label {
+    display: block;
+    width: 34px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 1;
+    background: #fcfff4;
+    @include background( linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%) );
+    @include border-radius( 50px );
+    @include transition( all .4s ease );
+    @include box-shadow( 0px 2px 5px 0px rgba(0,0,0,0.3) );
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label {
+      left: 43px;
+    }
+  }    
+}
+/* end .slideThree */
+
+
+/* .roundedOne */
+.roundedOne {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin: 20px auto;
+  background: #fcfff4;
+  @include background( linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%) );
+  @include border-radius( 50px );
+  @include box-shadow( inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5) );
+  label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    @include background( linear-gradient(top, #222 0%, #45484d 100%) );
+    @include border-radius( 50px );
+    @include box-shadow( inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1) );
+    &:after {
+      content: '';
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background: #00bf00;
+      @include background( linear-gradient(top, #00bf00 0%, #009400 100%) );
+      @include opacity( 0 );
+      @include border-radius( 50px );
+      @include box-shadow( inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5) );
+    }
+    &:hover::after {
+      @include opacity( 0.3 );
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after {
+      @include opacity( 1 );
+    }
+  }    
+}
+/* end .roundedOne */
+
+
+/* .roundedTwo */
+.roundedTwo {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin: 20px auto;
+  background: #fcfff4;
+  @include background (linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%) );
+  @include border-radius ( 50px );
+  @include box-shadow ( inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5) );
+  label {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    cursor: pointer;
+    @include background ( linear-gradient(top, #222 0%, #45484d 100%) );
+    @include border-radius ( 50px );
+    @include box-shadow ( inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1) );
+    &:after {
+      content: '';
+      width: 9px;
+      height: 5px;
+      position: absolute;
+      top: 5px;
+      left: 4px;
+      border: 3px solid #fcfff4;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      @include opacity ( 0 );
+      @include transform ( rotate(-45deg) );
+    }
+    &:hover::after {
+      @include opacity ( 0.3 );
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after {
+      @include opacity ( 1 );
+    } 
+  }   
+}
+/* end .roundedTwo */
+
+
+
+/* .squaredOne */
+.squaredOne {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin: 20px auto;
+  background: #fcfff4;
+  @include background( linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%) );
+  @include box-shadow( inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5) );
+  label {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    cursor: pointer;
+    @include background( linear-gradient(top, #222 0%, #45484d 100%) );
+    @include box-shadow( inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1) );
+    &:after {
+      content: '';
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background: #00bf00;
+      @include background( linear-gradient(top, #00bf00 0%, #009400 100%) );
+      @include box-shadow( inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5) );
+      @include opacity( 0 );
+    }
+    &:hover::after {
+      @include opacity( 0.3 );
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after {
+      @include opacity( 1 );
+    }   
+  } 
+}
+/* end .squaredOne */
+
+
+/* .squaredTwo */
+.squaredTwo {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin: 20px auto;
+  background: #fcfff4;
+  @include background( linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%) );
+  @include box-shadow( inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5) );
+  label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    @include background( linear-gradient(top, #222 0%, #45484d 100%) );
+    @include box-shadow( inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1) );
+    &:after {
+      content: '';
+      width: 9px;
+      height: 5px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border: 3px solid #fcfff4;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      @include opacity( 0 );
+      @include transform( rotate(-45deg) );
+    }
+    &:hover::after {
+      @include opacity( 0.3 );
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after {
+      @include opacity( 1 );
+    }    
+  }
+}
+/* end .squaredTwo */
+
+
+/* .squaredThree */
+.squaredThree {
+  width: 20px;
+  position: relative;
+  margin: 20px auto;
+  label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include background( linear-gradient(top, #222 0%, #45484d 100%) );
+    @include border-radius( 4px );
+    @include box-shadow( inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4) );
+    &:after {
+      content: '';
+      width: 9px;
+      height: 5px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border: 3px solid #fcfff4;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      @include opacity( 0 );
+      @include transform( rotate(-45deg) );
+    }
+    &:hover::after {
+      @include opacity( 0.3 );
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after {
+      @include opacity( 1 );
+    }    
+  }
+}
+/* end .squaredThree */
+
+
+/* .squaredFour */
+.squaredFour {
+  width: 20px;
+  position: relative;
+  margin: 20px auto;
+  label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fcfff4;
+    @include background( linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%) );
+    @include border-radius( 4px );
+    @include box-shadow( inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5) );
+    &:after {
+      content: '';
+      width: 9px;
+      height: 5px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border: 3px solid #333;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      @include opacity( 0 );
+      @include transform( rotate(-45deg) );
+    }
+    &:hover::after {
+      @include opacity( 0.5 );
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after {
+      @include opacity( 1 );
+    }
+  }    
+}
+/* end .squaredFour */
+
+
+
+
+
+// ** Page Styling - Nothing to do with the Radio Buttons **
+*{box-sizing: border-box;}
+body {
+	  background: #555;
+  background-image: url('http://subtlepatterns.com/patterns/dark_wall.png');
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  h1, h2 {
+    color: #eee;
+    font-size: 30px;
+    text-align: center;
+    margin: 20px 0 50px 0;
+    -webkit-font-smoothing: antialiased;
+    @include text-shadow( 0px 1px #000 );
+  }
+  .ondisplay{
+    text-align:center;
+    border-bottom:1px solid gray;
+    padding:20px 0;
+    section{
+      width:100px;
+      height:100px;
+      background: #555;
+      display:inline-block;
+      position: relative;
+      text-align: center;
+      margin-top:5px;
+      border: 1px solid gray;
+      @include border-radius( 5px );
+      @include box-shadow( 
+        0 1px 4px rgba(0, 0, 0, 0.3), 
+        0 0 40px rgba(0, 0, 0, 0.1) inset );
+      &:before {
+        content:'click it'; 
+        color: #bbb;
+        font-size: 12px;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        @include text-shadow( 0px 1px #000 );
+      }
+      &:after{
+        content:attr(title);
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 3px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        @include text-shadow( 0px 1px #000 ); 
+      }
+    }
+  }
+}
