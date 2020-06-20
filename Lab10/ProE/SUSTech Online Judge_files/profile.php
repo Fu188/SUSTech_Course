@@ -1,0 +1,2 @@
+document.write("<i class=icon-user></i><li><a href=modifypage.php>修改帐号</a></li>&nbsp;<li><a href='userinfo.php?user=11812202'><span id=red>11812202</span></a></li>&nbsp;<i class=icon-envelope></i><li><a href=mail.php><span id=red>(0)</span></a></li>&nbsp;<li><a href='contest.php?my'><span id=red>我的竞赛&作业</span></a></li>&nbsp;<li><a href='status.php?user_id=11812202'><span id=red>我的提交</span></a></li>&nbsp;<li><a href=logout.php>注销</a></li>&nbsp;");
+document.getElementById("profile").innerHTML="11812202";

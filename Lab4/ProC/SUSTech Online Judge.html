@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://acm.sustech.edu.cn/onlinejudge/problem.php?cid=1055&pid=2 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://acm.sustech.edu.cn/favicon.ico">
+
+    <title>SUSTech Online Judge</title>  
+    
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="./SUSTech Online Judge_files/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="./SUSTech Online Judge_files/bootstrap-theme.min.css">
+<link rel="stylesheet" href="./SUSTech Online Judge_files/white.css">
+<link rel="stylesheet" href="./SUSTech Online Judge_files/katex.min.css">
+<link rel="stylesheet" href="./SUSTech Online Judge_files/mathjax.css">
+<link rel="stylesheet" href="./SUSTech Online Judge_files/semantic.min.css">
+	    
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.1') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+  <body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+    <div class="container">
+          <!-- Static navbar -->
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://acm.sustech.edu.cn/onlinejudge/">SUSTech Online Judge</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+	                    <li><a href="https://acm.sustech.edu.cn/onlinejudge/bbs.php">讨论版</a></li>
+              <li><a href="https://acm.sustech.edu.cn/onlinejudge/faqs.php">常见问答</a></li>
+              <li><a href="https://acm.sustech.edu.cn/onlinejudge/problemset.php">问题</a></li>
+              <li><a href="https://acm.sustech.edu.cn/onlinejudge/category.php">来源/分类</a></li>
+              <li><a href="https://acm.sustech.edu.cn/onlinejudge/status.php">状态</a></li>
+              <li><a href="https://acm.sustech.edu.cn/onlinejudge/ranklist.php">排名</a></li>
+              <li><a href="https://acm.sustech.edu.cn/onlinejudge/contest.php">竞赛&amp;作业</a></li>
+	      <li><a>[</a></li>
+              <li class="active"><a href="https://acm.sustech.edu.cn/onlinejudge/contest.php?cid=1055">
+			问题	      </a></li>
+               <li class="active"><a href="https://acm.sustech.edu.cn/onlinejudge/status.php?cid=1055">
+			状态	      </a></li>
+              <li class="active"><a href="https://acm.sustech.edu.cn/onlinejudge/contestrank.php?cid=1055">
+			排名	      </a></li>
+              <li class="active"><a href="https://acm.sustech.edu.cn/onlinejudge/contestrank-oi.php?cid=1055">OI
+			排名	      </a></li>
+              <li class="active"><a href="https://acm.sustech.edu.cn/onlinejudge/conteststatistics.php?cid=1055">
+			统计	      </a></li>
+	      <li><a>]</a></li>
+              <!--<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+	-->
+            </ul>
+		<!--
+                <div class="btn-group btn-group-sm" role="group" aria-label="Extra-small button group">
+                 <button type="button" class="btn btn-default">中文</button>
+                 <button type="button" class="btn btn-default">Eng</button>
+                </div>
+		-->
+
+	    <ul class="nav navbar-nav navbar-right">
+	    <li class="dropdown">
+            <a href="https://acm.sustech.edu.cn/onlinejudge/problem.php?cid=1055&amp;pid=2#" class="dropdown-toggle" data-toggle="dropdown"><span id="profile">登录</span><span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+<script src="./SUSTech Online Judge_files/profile.php"></script><li><a href="https://acm.sustech.edu.cn/onlinejudge/loginpage.php">登录</a></li>&nbsp;
+              <!--<li><a href="../navbar-fixed-top/">Fixed top</a></li>-->
+	    </ul>
+	    </li>
+            </ul>
+				<ul class="nav navbar-nav navbar-right">
+			<li class="btn-group btn-group-sm" role="group">
+			<a class="btn btn-default navbar-btn " href="https://acm.sustech.edu.cn/onlinejudge/setlang.php?lang=cn" role="button">中</a>
+			<a class="btn btn-default navbar-btn " href="https://acm.sustech.edu.cn/onlinejudge/setlang.php?lang=en" role="button">EN</a>
+			<!--
+                	 <button type="button" class="btn btn-default">中</button>
+                	 <button type="button" class="btn btn-default">EN</button>
+               		-->
+			 </li>
+		</ul>
+		          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+
+	    
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron"><marquee style="margin-top:10px" id="broadcast" scrollamount="1" scrolldelay="50" onmouseover="this.stop()" onmouseout="this.start()" class="toprow"></marquee>
+	
+<title>问题 C: Coverted Vinux input </title><center><h2>问题 C: Coverted Vinux input</h2><span class="green">时间限制: </span>1 Sec&nbsp;&nbsp;<span class="green">内存限制: </span>128 MB<br><span class="green">提交: </span>842&nbsp;&nbsp;<span class="green">解决: </span>148<br>[<a href="https://acm.sustech.edu.cn/onlinejudge/submitpage.php?cid=1055&amp;pid=2&amp;langmask=0">提交</a>][<a href="https://acm.sustech.edu.cn/onlinejudge/problemstatus.php?id=1263">状态</a>][<a href="https://acm.sustech.edu.cn/onlinejudge/bbs.php?pid=1263&amp;cid=1055">讨论版</a>]</center><h2>题目描述</h2><div class="content"><p><span>Narnal is a huge fan of vim, so he has created a text editor called Vinux, which can only edit one line with several operations. Each line has an invisible undeletable tail character called EOL (end of line), which will always stay at the end of the line in any circumstance. </span><strong><span>Notice that the undeletable property of EOL means that EOL will revive immediately at the end of the line whenever it vanishes (been replaced or deleted). </span></strong><span>He wants to covert a </span><strong><span>one-line</span></strong><span> keyboard input containing operations and digits into a </span><strong><span>one-line</span></strong><span> real input with only digits.</span></p>
+<p><span>Only the following operations are available:</span></p>
+<p><span><span style="font-family:Courier New;">r</span>: next single input would replace the current character;</span></p>
+<p><span><span style="font-family:Courier New;">I</span>: move the character pointer to the head of the line;</span></p>
+<p><span><span style="font-family:Courier New;">H</span>: left shift the current character pointer unless it is at the leftmost place;</span></p>
+<p><span><span style="font-family:Courier New;">L</span>: right shift the current character pointer unless it is at the rightmost place;</span></p>
+<p><span><span style="font-family:Courier New;">x</span>: delete the current character;</span></p>
+<p><span>Otherwise, each input would insert before the current character.</span></p></div><h2>输入</h2><div class="content"><p><span>First line will be a positive integer <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 0.875em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.716em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.391em, 1000.72em, 2.304em, -999.998em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math-italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.121em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.185em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.045em; border-left: 0px solid; width: 0px; height: 0.907em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi></math></span></span><script type="math/tex" id="MathJax-Element-1">T</script>, which is the number of test cases.</span></p>
+<p><span>In each test case, the first line would be an integer <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-4" style="width: 0.716em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.597em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.629em, 1000.56em, 2.304em, -999.998em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-5"><span class="mi" id="MathJax-Span-6" style="font-family: MathJax_Math-italic;">n</span></span><span style="display: inline-block; width: 0px; height: 2.185em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.045em; border-left: 0px solid; width: 0px; height: 0.621em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></span></span><script type="math/tex" id="MathJax-Element-2">n</script> for the length of the keyboard input of Vinux. Then the following line represents the keyboard input of Vinux.</span></p>
+<p><span><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;20&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;20&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;msup&gt;&lt;mn&gt;10&lt;/mn&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-7" style="width: 11.034em; display: inline-block;"><span style="display: inline-block; position: relative; width: 9.169em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.192em, 1009.17em, 2.502em, -999.998em); top: -2.181em; left: 0em;"><span class="mrow" id="MathJax-Span-8"><span class="mi" id="MathJax-Span-9" style="font-family: MathJax_Math-italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.121em;"></span></span><span class="mo" id="MathJax-Span-10" style="font-family: MathJax_Main; padding-left: 0.28em;">≤</span><span class="mn" id="MathJax-Span-11" style="font-family: MathJax_Main; padding-left: 0.28em;">20</span><span class="mo" id="MathJax-Span-12" style="font-family: MathJax_Main;">,</span><span class="mn" id="MathJax-Span-13" style="font-family: MathJax_Main; padding-left: 0.161em;">20</span><span class="mo" id="MathJax-Span-14" style="font-family: MathJax_Main; padding-left: 0.28em;">≤</span><span class="mi" id="MathJax-Span-15" style="font-family: MathJax_Math-italic; padding-left: 0.28em;">n</span><span class="mo" id="MathJax-Span-16" style="font-family: MathJax_Main; padding-left: 0.28em;">≤</span><span class="msubsup" id="MathJax-Span-17" style="padding-left: 0.28em;"><span style="display: inline-block; position: relative; width: 1.431em; height: 0px;"><span style="position: absolute; clip: rect(3.216em, 1000.95em, 4.169em, -999.998em); top: -4.006em; left: 0em;"><span class="mn" id="MathJax-Span-18" style="font-family: MathJax_Main;">10</span><span style="display: inline-block; width: 0px; height: 4.01em;"></span></span><span style="position: absolute; top: -4.403em; left: 0.994em;"><span class="texatom" id="MathJax-Span-19"><span class="mrow" id="MathJax-Span-20"><span class="mn" id="MathJax-Span-21" style="font-size: 70.7%; font-family: MathJax_Main;">5</span></span></span><span style="display: inline-block; width: 0px; height: 4.01em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.185em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.283em; border-left: 0px solid; width: 0px; height: 1.383em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mo>≤</mo><mn>20</mn><mo>,</mo><mn>20</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><msup><mn>10</mn><mrow class="MJX-TeXAtom-ORD"><mn>5</mn></mrow></msup></math></span></span><script type="math/tex" id="MathJax-Element-3">T \leq 20, 20 \leq n \leq 10^{5}</script>. The aiming real input only contains digits without blanks. The input would always be valid (the input after <span style="font-family:Courier New;">r</span> would never be an operation character).</span></p></div><h2>输出</h2><div class="content"><p><span>For each case, output one line shows the real input without EOL.</span></p></div><h2>样例输入</h2>
+<pre class="content"><span class="sampledata">2
+25
+12345HHHr9Ir000LLLLL876Ix
+20
+r60xxxxHx4xHH3III1I2</span></pre><h2>样例输出</h2>
+<pre class="content"><span class="sampledata">002945876
+2134</span></pre><h2>提示</h2>
+<div class="content"><p></p><div><div>Sample 1</div><div style="font-family:Courier New;">&nbsp;real: <span id="demo1"></span></div><div style="font-family:Courier New;">index: <span id="index1"></span></div><div style="font-family:Courier New;">input: <span id="char1"></span></div><div><input type="button" onclick="var t = 1000; function sleep(ms){ return new Promise(resolve =&gt; setTimeout(resolve, ms)); } async function demo(){ var type_demo = document.getElementById(&#39;demo1&#39;); var type_index = document.getElementById(&#39;index1&#39;); var type_char = document.getElementById(&#39;char1&#39;);var button_control = document.getElementById(&#39;control1&#39;);button_control.setAttribute(&#39;disabled&#39;, &#39;disabled&#39;);button_control.setAttribute(&#39;value&#39;, &#39;wait&#39;);type_demo.innerHTML = &#39;&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;-1&#39;;type_char.innerHTML = &#39;&#39;;await sleep(t);type_demo.innerHTML = &#39;EOL&#39;;type_index.innerHTML = &#39;-1&#39;;type_char.innerHTML = &#39;&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;-1&#39;;type_char.innerHTML = &#39;&#39;;await sleep(t);type_demo.innerHTML = &#39;1&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;0&#39;;type_char.innerHTML = &#39;1&#39;;await sleep(t);type_demo.innerHTML = &#39;12&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;1&#39;;type_char.innerHTML = &#39;2&#39;;await sleep(t);type_demo.innerHTML = &#39;123&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;2&#39;;type_char.innerHTML = &#39;3&#39;;await sleep(t);type_demo.innerHTML = &#39;1234&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;3&#39;;type_char.innerHTML = &#39;4&#39;;await sleep(t);type_demo.innerHTML = &#39;12345&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;4&#39;;type_char.innerHTML = &#39;5&#39;;await sleep(t);type_demo.innerHTML = &#39;1234&lt;u&gt;5&lt;/u&gt;EOL&#39;;type_index.innerHTML = &#39;5&#39;;type_char.innerHTML = &#39;H&#39;;await sleep(t);type_demo.innerHTML = &#39;123&lt;u&gt;4&lt;/u&gt;5EOL&#39;;type_index.innerHTML = &#39;6&#39;;type_char.innerHTML = &#39;H&#39;;await sleep(t);type_demo.innerHTML = &#39;12&lt;u&gt;3&lt;/u&gt;45EOL&#39;;type_index.innerHTML = &#39;7&#39;;type_char.innerHTML = &#39;H&#39;;await sleep(t);type_demo.innerHTML = &#39;12345EOL&#39;;type_index.innerHTML = &#39;8&#39;;type_char.innerHTML = &#39;r&#39;;await sleep(t);type_demo.innerHTML = &#39;12&lt;u&gt;3&lt;/u&gt;45EOL&#39;;type_index.innerHTML = &#39;8&#39;;type_char.innerHTML = &#39;r&#39;;await sleep(t);type_demo.innerHTML = &#39;12&lt;u&gt;9&lt;/u&gt;45EOL&#39;;type_index.innerHTML = &#39;9&#39;;type_char.innerHTML = &#39;9&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;1&lt;/u&gt;2945EOL&#39;;type_index.innerHTML = &#39;10&#39;;type_char.innerHTML = &#39;I&#39;;await sleep(t);type_demo.innerHTML = &#39;12945EOL&#39;;type_index.innerHTML = &#39;11&#39;;type_char.innerHTML = &#39;r&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;1&lt;/u&gt;2945EOL&#39;;type_index.innerHTML = &#39;11&#39;;type_char.innerHTML = &#39;r&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;0&lt;/u&gt;2945EOL&#39;;type_index.innerHTML = &#39;12&#39;;type_char.innerHTML = &#39;0&#39;;await sleep(t);type_demo.innerHTML = &#39;0&lt;u&gt;0&lt;/u&gt;2945EOL&#39;;type_index.innerHTML = &#39;13&#39;;type_char.innerHTML = &#39;0&#39;;await sleep(t);type_demo.innerHTML = &#39;00&lt;u&gt;0&lt;/u&gt;2945EOL&#39;;type_index.innerHTML = &#39;14&#39;;type_char.innerHTML = &#39;0&#39;;await sleep(t);type_demo.innerHTML = &#39;000&lt;u&gt;2&lt;/u&gt;945EOL&#39;;type_index.innerHTML = &#39;15&#39;;type_char.innerHTML = &#39;L&#39;;await sleep(t);type_demo.innerHTML = &#39;0002&lt;u&gt;9&lt;/u&gt;45EOL&#39;;type_index.innerHTML = &#39;16&#39;;type_char.innerHTML = &#39;L&#39;;await sleep(t);type_demo.innerHTML = &#39;00029&lt;u&gt;4&lt;/u&gt;5EOL&#39;;type_index.innerHTML = &#39;17&#39;;type_char.innerHTML = &#39;L&#39;;await sleep(t);type_demo.innerHTML = &#39;000294&lt;u&gt;5&lt;/u&gt;EOL&#39;;type_index.innerHTML = &#39;18&#39;;type_char.innerHTML = &#39;L&#39;;await sleep(t);type_demo.innerHTML = &#39;0002945&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;19&#39;;type_char.innerHTML = &#39;L&#39;;await sleep(t);type_demo.innerHTML = &#39;00029458&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;20&#39;;type_char.innerHTML = &#39;8&#39;;await sleep(t);type_demo.innerHTML = &#39;000294587&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;21&#39;;type_char.innerHTML = &#39;7&#39;;await sleep(t);type_demo.innerHTML = &#39;0002945876&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;22&#39;;type_char.innerHTML = &#39;6&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;0&lt;/u&gt;002945876EOL&#39;;type_index.innerHTML = &#39;23&#39;;type_char.innerHTML = &#39;I&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;0&lt;/u&gt;02945876EOL&#39;;type_index.innerHTML = &#39;24&#39;;type_char.innerHTML = &#39;x&#39;;await sleep(t);type_demo.innerHTML = &#39;002945876EOL&#39;;type_index.innerHTML = &#39;FINISHED&#39;;type_char.innerHTML = &#39;FINISHED&#39;;await sleep(t);button_control.removeAttribute(&#39;disabled&#39;);button_control.setAttribute(&#39;value&#39;, &#39;start simulation&#39;);} demo();" value="start simulation" id="control1"></div></div><br>
+<div><div>Sample 2</div><div style="font-family:Courier New;">&nbsp;real: <span id="demo2"></span></div><div style="font-family:Courier New;">index: <span id="index2"></span></div><div style="font-family:Courier New;">input: <span id="char2"></span></div><div><input type="button" onclick="var t = 1000; function sleep(ms){ return new Promise(resolve =&gt; setTimeout(resolve, ms)); } async function demo(){ var type_demo = document.getElementById(&#39;demo2&#39;); var type_index = document.getElementById(&#39;index2&#39;); var type_char = document.getElementById(&#39;char2&#39;);var button_control = document.getElementById(&#39;control2&#39;);button_control.setAttribute(&#39;disabled&#39;, &#39;disabled&#39;);button_control.setAttribute(&#39;value&#39;, &#39;wait&#39;);type_demo.innerHTML = &#39;&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;-1&#39;;type_char.innerHTML = &#39;&#39;;await sleep(t);type_demo.innerHTML = &#39;EOL&#39;;type_index.innerHTML = &#39;-1&#39;;type_char.innerHTML = &#39;&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;-1&#39;;type_char.innerHTML = &#39;&#39;;await sleep(t);type_demo.innerHTML = &#39;EOL&#39;;type_index.innerHTML = &#39;0&#39;;type_char.innerHTML = &#39;r&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;0&#39;;type_char.innerHTML = &#39;r&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;6&lt;/u&gt;EOL&#39;;type_index.innerHTML = &#39;1&#39;;type_char.innerHTML = &#39;6&#39;;await sleep(t);type_demo.innerHTML = &#39;0&lt;u&gt;6&lt;/u&gt;EOL&#39;;type_index.innerHTML = &#39;2&#39;;type_char.innerHTML = &#39;0&#39;;await sleep(t);type_demo.innerHTML = &#39;0&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;3&#39;;type_char.innerHTML = &#39;x&#39;;await sleep(t);type_demo.innerHTML = &#39;0&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;4&#39;;type_char.innerHTML = &#39;x&#39;;await sleep(t);type_demo.innerHTML = &#39;0&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;5&#39;;type_char.innerHTML = &#39;x&#39;;await sleep(t);type_demo.innerHTML = &#39;0&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;6&#39;;type_char.innerHTML = &#39;x&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;0&lt;/u&gt;EOL&#39;;type_index.innerHTML = &#39;7&#39;;type_char.innerHTML = &#39;H&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;8&#39;;type_char.innerHTML = &#39;x&#39;;await sleep(t);type_demo.innerHTML = &#39;4&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;9&#39;;type_char.innerHTML = &#39;4&#39;;await sleep(t);type_demo.innerHTML = &#39;4&lt;u&gt;EOL&lt;/u&gt;&#39;;type_index.innerHTML = &#39;10&#39;;type_char.innerHTML = &#39;x&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;4&lt;/u&gt;EOL&#39;;type_index.innerHTML = &#39;11&#39;;type_char.innerHTML = &#39;H&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;4&lt;/u&gt;EOL&#39;;type_index.innerHTML = &#39;12&#39;;type_char.innerHTML = &#39;H&#39;;await sleep(t);type_demo.innerHTML = &#39;3&lt;u&gt;4&lt;/u&gt;EOL&#39;;type_index.innerHTML = &#39;13&#39;;type_char.innerHTML = &#39;3&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;3&lt;/u&gt;4EOL&#39;;type_index.innerHTML = &#39;14&#39;;type_char.innerHTML = &#39;I&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;3&lt;/u&gt;4EOL&#39;;type_index.innerHTML = &#39;15&#39;;type_char.innerHTML = &#39;I&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;3&lt;/u&gt;4EOL&#39;;type_index.innerHTML = &#39;16&#39;;type_char.innerHTML = &#39;I&#39;;await sleep(t);type_demo.innerHTML = &#39;1&lt;u&gt;3&lt;/u&gt;4EOL&#39;;type_index.innerHTML = &#39;17&#39;;type_char.innerHTML = &#39;1&#39;;await sleep(t);type_demo.innerHTML = &#39;&lt;u&gt;1&lt;/u&gt;34EOL&#39;;type_index.innerHTML = &#39;18&#39;;type_char.innerHTML = &#39;I&#39;;await sleep(t);type_demo.innerHTML = &#39;2&lt;u&gt;1&lt;/u&gt;34EOL&#39;;type_index.innerHTML = &#39;19&#39;;type_char.innerHTML = &#39;2&#39;;await sleep(t);type_demo.innerHTML = &#39;2134EOL&#39;;type_index.innerHTML = &#39;FINISHED&#39;;type_char.innerHTML = &#39;FINISHED&#39;;await sleep(t);button_control.removeAttribute(&#39;disabled&#39;);button_control.setAttribute(&#39;value&#39;, &#39;start simulation&#39;);} demo();" value="start simulation" id="control2"></div></div><p></p></div><center>[<a href="https://acm.sustech.edu.cn/onlinejudge/submitpage.php?cid=1055&amp;pid=2&amp;langmask=0">提交</a>][<a href="https://acm.sustech.edu.cn/onlinejudge/problemstatus.php?id=1263">状态</a>]</center>      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="./SUSTech Online Judge_files/jquery.min.js.下载"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="./SUSTech Online Judge_files/bootstrap.min.js.下载"></script>
+
+
+<script src="./SUSTech Online Judge_files/MathJax.js.下载" id="">
+</script>
+
+<script>
+$(document).ready(function(){
+  var msg="<marquee style='margin-top:10px' id=broadcast scrollamount=1 scrolldelay=50 onMouseOver='this.stop()'"+
+      " onMouseOut='this.start()' class=toprow>"+""+"</marquee>";
+  $(".jumbotron").prepend(msg);
+  $("form").append("<div id='csrf' />");
+  $("#csrf").load("csrf.php");
+  $("body").append("<div id=footer class=center >GPLv2 licensed by HUSTOJ</a> "+(new Date()).getFullYear()+" </div>");
+})
+</script>
+
+	
+<script>
+function phpfm(pid){
+        //alert(pid);
+        $.post("admin/phpfm.php",{'frame':3,'pid':pid,'pass':''},function(data,status){
+                if(status=="success"){
+                        document.location.href="admin/phpfm.php?frame=3&pid="+pid;
+                }
+        });
+}
+</script>	  
+  
+
+<!--not cached-->
+
+<div id="footer" class="center">GPLv2 licensed by HUSTOJ 2020 </div><div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Main, sans-serif;"></div></div></body></html>
