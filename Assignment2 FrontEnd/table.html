@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Movie list</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="table.js"></script>
+</head>
+<style>
+    .login-button {
+        margin-top: 16px;
+        padding: 12px 0px;
+        width: 200px;
+        border-width: 0px;
+        border-radius: 3px;
+        background: #1E90FF;
+        cursor: pointer;
+        outline: none;
+        font-family: Microsoft YaHei;
+        color: white;
+        font-size: 23px;
+        text-align: center;
+    }
+    .login-button:hover {
+        background: #5599FF;
+    }
+
+</style>
+<body onload="initial()">
+    <div class="panel panel-primary" style="margin-left: 200px;width: 1000px">
+        <div class="panel-heading">
+            <h1 class="panel-title" style="text-align: center;font-size: 30px;">Movie List </h1>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Movie Hall</th>
+                        <th>Type</th>
+                        <th></th>
+                    </tr>
+                    <tbody id="tbody" style="display: none">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input type="button" value="Delete" onclick="removeRow(this)">
+                        </td>
+                    </tr>
+                    </tbody>
+                </thead>
+            </table>
+        </div>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"style="text-align: center">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseOne"  >
+                            Add a movie!
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div>
+                            <form name="form1">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">Title:</span>
+                                    <input type="text" name="title" class="form-control">
+                                </div>
+                                <br>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">Date:</span>
+                                    <input type="date" name="date" class="form-control">
+                                </div>
+                                <br>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">Time:</span>
+                                    <input type="time" name="time" class="form-control">
+                                </div>
+                                <br>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">Duration:</span>
+                                    <input type="text" name="duration" class="form-control">
+                                </div>
+                                <br>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">Price:</span>
+                                    <input type="price" name="price" class="form-control">
+                                </div>
+                                <br>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">Movie Hall:</span>
+                                    <label for="movieHall"></label>
+                                    <select id="movieHall" style="height: 45px; width: 845px"></select>
+                                </div>
+                                <br>
+                                <div class="input-group input-group-lg">
+                                    <input type="radio" name="type" value="ordinary" style="zoom: 150%;width: 50px"/>
+                                    <b style="font-size: 20pt;width: 250px">Ordinary</b>
+                                    <input type="radio" name="type" value="threeD" style="zoom: 150%;width: 50px"/>
+                                    <b style="font-size: 20pt">Three D</b>
+                                </div>
+                                <br>
+                                <div style="text-align: center">
+                                    <input class="login-button" onclick="onClickAddMovie()" value="Add Movie">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
