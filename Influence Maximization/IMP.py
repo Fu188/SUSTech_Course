@@ -89,7 +89,7 @@ def node_selection(R,k,n):
 def Sampling(G,n,t):
     time0 = time.time()
     R = []
-    while(time.time()-time0 < t/2):
+    while(time.time()-time0 < t*5/9 and len(R)<4000000):
         random_node = random.randint(1, n)
         RR = generate_rr(G,random_node)
         R.append(RR)
@@ -104,7 +104,7 @@ def IMM(G,k,n,t):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--file_name', type=str, default='NetHEPT.txt')
+    parser.add_argument('-i', '--file_name', type=str, default='testcases/NetHEPT.txt')
     parser.add_argument('-k', '--seed', type=int, default=50)
     parser.add_argument('-m', '--model', type=str, default='LT')
     parser.add_argument('-t', '--time_limit', type=int, default=60)
