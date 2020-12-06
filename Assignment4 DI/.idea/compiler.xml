@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="di-assignment-20" />
+        <module name="Assignment4 DI" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />

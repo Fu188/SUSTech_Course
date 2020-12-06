@@ -1,8 +1,10 @@
 import annotations.Inject;
+import annotations.Value;
 
 import java.io.*;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
+import java.lang.reflect.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 public class BeanFactoryImpl implements BeanFactory {
@@ -11,52 +13,121 @@ public class BeanFactoryImpl implements BeanFactory {
     private Properties valueProperties = new Properties();
 
     @Override
-    public void loadInjectProperties(File file){
+    public void loadInjectProperties(File file) {
         try {
             InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
             this.injectProperties.load(inputStream);
-        }catch(IOException e){
+            inputStream.close();
+        }catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public void loadValueProperties(File file) {
-        try {
+        try{
             InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
             this.valueProperties.load(inputStream);
-        }catch(IOException e){
+            inputStream.close();
+        }catch (IOException e){
             e.printStackTrace();
         }
     }
 
     @Override
-    public <T> T createInstance(Class<T> clazz){
+    public <T> T createInstance(Class<T> clazz) {
+        String ClzName = clazz.getName();
+        String ImplClzName = this.injectProperties.getProperty(ClzName);
+        Class<?> Clz = clazz;
+        Object object = null;
+        List<Object> paraObject = new ArrayList<Object>();
+
         try{
-            Class<?> Clz = clazz;
+            // Judge whether it is a Inherited class
+            if(ImplClzName != null){
+                Clz = Class.forName(ImplClzName);
+            }
+
+            // Select a constructor
             Constructor constructor = null;
-            for (Constructor c : AA.class.getDeclaredConstructors()) {
-                if (c.getAnnotation(Inject.class) != null) {
+            for (Constructor c: Clz.getDeclaredConstructors()) {
+                if(c.getAnnotation(Inject.class)!=null){
                     constructor = c;
                     break;
                 }
             }
-            if (constructor == null){
+            if(constructor==null) {
                 constructor = Clz.getDeclaredConstructor();
             }
 
-            Object object = constructor.newInstance();
-            Field[] ClzFields = Clz.getDeclaredFields();
-            for(Field field: ClzFields){
-                field.setAccessible(true);
-                System.out.println(field.getType());
-//                field.set(object, );
+            // Instantiate parameters
+            for(Parameter p: constructor.getParameters()){
+                if(p.getAnnotation(Value.class)!=null){
+                    paraObject.add(valueInstance(p.getType(),p.getAnnotation(Value.class)));
+                }else{
+                    paraObject.add(createInstance(p.getType()));
+                }
             }
 
-            return (T) object;
+            // Instantiate the object
+            object = constructor.newInstance(paraObject.toArray());
+
+            // Instantiate declared fields
+            for(Field f: Clz.getDeclaredFields()){
+                if(f.getAnnotation(Inject.class)!=null){
+                    f.setAccessible(true);
+                    f.set(object,createInstance(f.getType()));
+                    f.setAccessible(false);
+                }
+                if(f.getAnnotation(Value.class)!=null){
+                    f.setAccessible(true);
+                    f.set(object,valueInstance(f.getType(),f.getAnnotation(Value.class)));
+                    f.setAccessible(false);
+                }
+            }
+
+            return (T)object;
         }catch (Exception e){
             e.printStackTrace();
         }
         return null;
+    }
+
+    private Object valueInstance(Class<?> clazz, Value valueAnnotation) {
+        try{
+            Object object;
+
+            // To get the inject value
+            String value = this.valueProperties.getProperty(valueAnnotation.value());
+            if(value==null) value = valueAnnotation.value();
+
+            // To instantiate an array
+            if(clazz.isArray()){
+                String[] array = value.split(valueAnnotation.delimiter());
+                object = Array.newInstance(clazz.getComponentType(),array.length);
+                for(int i=0;i<array.length;i++){
+                    Array.set(object,i,toWrapperType(clazz.getComponentType()).getConstructor(String.class).newInstance(array[i]));
+                }
+            }else{
+                object = toWrapperType(clazz).getConstructor(String.class).newInstance(value);
+            }
+
+            return object;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private Class<?> toWrapperType(Class<?> clazz) throws ClassNotFoundException {
+        if(clazz==Boolean.TYPE) return Class.forName("java.lang.Boolean");
+        if(clazz==Byte.TYPE) return Class.forName("java.lang.Byte");
+        if(clazz==Character.TYPE) return Class.forName("java.lang.Character");
+        if(clazz==Short.TYPE) return Class.forName("java.lang.Short");
+        if(clazz==Integer.TYPE) return Class.forName("java.lang.Integer");
+        if(clazz==Long.TYPE) return Class.forName("java.lang.Long");
+        if(clazz==Float.TYPE) return Class.forName("java.lang.Float");
+        if(clazz==Double.TYPE) return Class.forName("java.lang.Double");
+        return clazz;
     }
 }
