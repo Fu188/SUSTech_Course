@@ -108,9 +108,6 @@ public class BeanFactoryImpl implements BeanFactory {
                 String[] array = value.split(valueAnnotation.delimiter());
                 object = Array.newInstance(clazz.getComponentType(),array.length);
                 for(int i=0;i<array.length;i++){
-                    System.out.println(array[i]);
-                    System.out.println(clazz.getComponentType());
-                    System.out.println(toWrapperType(clazz.getComponentType(),array[i]));
                     Array.set(object,i,toWrapperType(clazz.getComponentType(),array[i]));
                 }
             }else{
