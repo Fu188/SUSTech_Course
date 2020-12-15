@@ -1,9 +1,11 @@
 import annotations.Inject;
 import annotations.Value;
 
+import java.awt.geom.FlatteningPathIterator;
 import java.io.*;
 import java.lang.reflect.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
@@ -106,12 +108,14 @@ public class BeanFactoryImpl implements BeanFactory {
                 String[] array = value.split(valueAnnotation.delimiter());
                 object = Array.newInstance(clazz.getComponentType(),array.length);
                 for(int i=0;i<array.length;i++){
-                    Array.set(object,i,toWrapperType(clazz.getComponentType()).getConstructor(String.class).newInstance(array[i]));
+                    System.out.println(array[i]);
+                    System.out.println(clazz.getComponentType());
+                    System.out.println(toWrapperType(clazz.getComponentType(),array[i]));
+                    Array.set(object,i,toWrapperType(clazz.getComponentType(),array[i]));
                 }
             }else{
-                object = toWrapperType(clazz).getConstructor(String.class).newInstance(value);
+                object = toWrapperType(clazz,value);
             }
-
             return object;
         }catch (Exception e){
             e.printStackTrace();
@@ -119,15 +123,36 @@ public class BeanFactoryImpl implements BeanFactory {
         return null;
     }
 
-    private Class<?> toWrapperType(Class<?> clazz) throws ClassNotFoundException {
-        if(clazz==Boolean.TYPE) return Class.forName("java.lang.Boolean");
-        if(clazz==Byte.TYPE) return Class.forName("java.lang.Byte");
-        if(clazz==Character.TYPE) return Class.forName("java.lang.Character");
-        if(clazz==Short.TYPE) return Class.forName("java.lang.Short");
-        if(clazz==Integer.TYPE) return Class.forName("java.lang.Integer");
-        if(clazz==Long.TYPE) return Class.forName("java.lang.Long");
-        if(clazz==Float.TYPE) return Class.forName("java.lang.Float");
-        if(clazz==Double.TYPE) return Class.forName("java.lang.Double");
-        return clazz;
+    private Object toWrapperType(Class<?> type, String value) {
+        if(type == boolean.class) return Boolean.parseBoolean(value);
+        if(type == Boolean.class) return Boolean.parseBoolean(value);
+        if(type == byte.class) return Byte.parseByte(value);
+        if(type == Byte.class) return Byte.parseByte(value);
+        if(type == char.class) return value.charAt(0);
+        if(type == Character.class) return value.charAt(0);
+        if(type == short.class) return Short.parseShort(value);
+        if(type == Short.class) return Short.parseShort(value);
+        if(type == int.class) return Integer.parseInt(value);
+        if(type == Integer.class) return Integer.parseInt(value);
+        if(type == long.class) return Long.parseLong(value);
+        if(type == Long.class) return Long.parseLong(value);
+        if(type == float.class) return Float.parseFloat(value);
+        if(type == Float.class) return Float.parseFloat(value);
+        if(type == double.class) return Double.parseDouble(value);
+        if(type == Double.class) return Double.parseDouble(value);
+        if(type == String.class) return value;
+        return value;
     }
+
+//    private Class<?> toWrapperType(Class<?> clazz) throws ClassNotFoundException {
+//        if(clazz==Boolean.TYPE) return Class.forName("java.lang.Boolean");
+//        if(clazz==Byte.TYPE) return Class.forName("java.lang.Byte");
+//        if(clazz==Character.TYPE) return Class.forName("java.lang.Character");
+//        if(clazz==Short.TYPE) return Class.forName("java.lang.Short");
+//        if(clazz==Integer.TYPE) return Class.forName("java.lang.Integer");
+//        if(clazz==Long.TYPE) return Class.forName("java.lang.Long");
+//        if(clazz==Float.TYPE) return Class.forName("java.lang.Float");
+//        if(clazz==Double.TYPE) return Class.forName("java.lang.Double");
+//        return clazz;
+//    }
 }
