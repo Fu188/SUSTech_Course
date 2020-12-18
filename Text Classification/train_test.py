@@ -22,9 +22,9 @@ if __name__ == '__main__':
 
     # define classifier model
     classifier1 = SGDClassifier(loss='modified_huber', alpha=1e-4, max_iter=10000)
-    classifier2 = RidgeClassifier(alpha=1.1, max_iter=10000)
-    classifier3 = CalibratedClassifierCV(LinearSVC(C=1.1, max_iter=10000))
-    classifier4 = OneVsRestClassifier(LinearSVC(C=1.1, max_iter=10000))
+    classifier2 = RidgeClassifier(alpha=1.175, max_iter=10000)
+    classifier3 = CalibratedClassifierCV(LinearSVC(C=1.175, max_iter=10000))
+    classifier4 = OneVsRestClassifier(LinearSVC(C=1.175, max_iter=10000))
     classifier5 = PassiveAggressiveClassifier(C=1.175, loss="hinge", max_iter=10000)
 
     classifier = Pipeline([
