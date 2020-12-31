@@ -1,10 +1,10 @@
 package Bridge;
 
 public abstract class Shape {
-    public DrawAPI drawAPI;
+    Color color;
 
-    public Shape(DrawAPI drawAPI){
-        this.drawAPI = drawAPI;
+    public void setColor(Color color){
+        this.color = color;
     }
 
     public abstract void draw();
