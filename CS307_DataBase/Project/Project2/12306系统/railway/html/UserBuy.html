@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserOrder</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../library/citySelect/css/city-select.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.8.1/jquery.js"></script>
+    <script src="../library/laydate/laydate.js"></script>
+</head>
+<style>
+    .navigation_bar{
+        background: #ececec;
+    }
+
+    .navigation_text{
+        font-size: 20px;
+    }
+
+    .login-button {
+        margin-top: 16px;
+        padding: 12px 0px;
+        width: 200px;
+        border-width: 0px;
+        border-radius: 3px;
+        background: #1E90FF;
+        cursor: pointer;
+        outline: none;
+        font-family: Microsoft YaHei;
+        color: white;
+        font-size: 23px;
+    }
+    .login-button:hover {
+        background: #5599FF;
+    }
+</style>
+<script>
+<!--alert-->
+</script>
+<body>
+<!--导航栏-->
+<div>
+    <a href="../Login.html">
+        <img style="max-height:100px;overflow:hidden;" src="../images/logo.png" alt="">
+    </a>
+    <ul class="nav nav-pills nav-justified">
+        <li class="navigation_bar">
+            <a class="navigation_text" href="UserQuery.html">车票查询</a>
+        </li>
+        <li class="navigation_bar">
+            <a class="navigation_text" href="UserTrainQuery.html">车次查询</a>
+        </li>
+        <li class="active">
+            <a class="navigation_text" href="UserBuy.html">购票服务</a>
+        </li>
+        <li class="navigation_bar">
+            <a class="navigation_text" href="UserOrderQuery.html">订单查询</a>
+        </li>
+    </ul>
+</div>
+
+<div style="height: 50px"></div>
+
+<form action="UserBuy.html" method="get">
+<table>
+    <th>
+        <div class="panel panel-primary" style="margin-left: 70px;width: 650px">
+            <div class="panel-heading">
+                <h1 class="panel-title" style="text-align: center;font-size: 30px;">车票信息</h1>
+            </div>
+            <div class="panel-body">
+                <table>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">车次编号</span>
+                        <input type="text" name="stationNo" class="form-control" placeholder="例如:K1348">
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">起始编号</span>
+                        <input type="text" name="dptStation" class="form-control" onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="例如:2">
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">目的编号</span>
+                        <input type="text" name="arrStation" class="form-control" onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="例如:3">
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">出发日期</span>
+                        <input type="text" name="dptDate" id="test1" class="form-control" placeholder="例如:2020-5-20">
+                        <script>
+                            laydate.render({
+                                elem: '#test1'
+                                ,theme: 'molv'
+                                ,format:'yyyy-MM-dd'
+                            });
+                        </script>
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">座位席别</span>
+                        <select name="seat" class="form-control">
+                            <option>一等座</option>
+                            <option>二等座</option>
+                        </select>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </th>
+    <th>
+        <div class="panel panel-primary" style="margin-left: 80px;width: 650px">
+            <div class="panel-heading">
+                <h1 class="panel-title" style="text-align: center;font-size: 30px;">乘客信息</h1>
+            </div>
+            <div class="panel-body">
+                <table>
+                    <br>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">乘客姓名</span>
+                        <input type="text" name="peopleName" class="form-control" placeholder="请输入乘客姓名">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">身份证号</span>
+                        <input type="text" maxlength="18" name="peopleId" class="form-control" placeholder="请输入15位或18位身份证号">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">手机号码</span>
+                        <input type="text" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" name="peopleTel" class="form-control" placeholder="请输入11位手机号码">
+                    </div>
+                    <br>
+                    <br>
+                </table>
+            </div>
+        </div>
+    </th>
+</table>
+
+<div style="text-align: center">
+    <button class="login-button" onclick="buyticket()">购票</button>
+</div>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body{
+			background-image:url("images/background.png");
+		}
+	</style>
+</head>
+<body>
+	 <!-----start-main---->
+	 <div class="main">
+		<div class="login-form">
+			<h1>Member Login</h1>
+			<div class="head">
+				<img src="images/user.png" alt=""/>
+			</div>
+			<form>
+				<script>
+					var people;
+					function change() {
+						if(people=='User'){
+							window.location.href='html/UserQuery.html'
+						}else{
+							window.location.href='html/AdminQuery.html'
+						}
+					}
+				</script>
+				<input type='user' id="user" value="User" onclick="people='User'" readonly/>
+				<input type="manager" id="manager" value="Manager" readonly/>
+				<input type="button" onclick="change()" value="LOGIN">
+			</form>
+		</div>
+		 <div>
+			 <p>版权所有：傅伟堡 蔡于飞</p>
+		 </div>
+	 </div>
+			 <!-----//end-main---->
+
+<!--<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>-->
+</body>
+</html>
