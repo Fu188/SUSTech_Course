@@ -1,0 +1,17 @@
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module minisys_sim.u.ifetch.instmem.inst.native_mem_module.blk_mem_gen_v8_4_1_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module minisys_sim.u.memory.ram.inst.native_mem_module.blk_mem_gen_v8_4_1_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Warning : input CLKIN1 period and attribute CLKIN1_PERIOD on PLLE2_ADV instance minisys_sim.u.cpuclk.inst.plle2_adv_inst are not same.
+time:                13000;
+ switch: 001000000001001000110100;
+ led: 101010101010101010101010;
+
+time:                18000;
+ switch: 010000000001001000110100;
+ led: 000000000001001000110100;
+
