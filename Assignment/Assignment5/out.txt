@@ -1,0 +1,11 @@
+test contains: Mais où sont les neiges d'antan?
+length in bytes of test: 33
+number of characters (one 2-byte character): 32
+position of "sont": 8
+test2 before replacement: Всё хорошо́, что хорошо́ конча́ется
+test2 after replacement: Всё просто, что просто конча́ется
+test + test2: Mais où sont les neiges d'antan?Всё просто, что просто конча́ется
+Appending !!! to test
+Result: Mais où sont les neiges d'antan?!!!
+Testing operator *: hip hip hip hurray
+Testing operator !: Никола́й Васи́льевич Го́голь -> ьлоѓоГ чивеьл́исаВ й́алокиН

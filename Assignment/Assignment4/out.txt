@@ -1,0 +1,6 @@
+Load the file successfully
+There are 315 characters belong to Basic Latin
+There are 1088 characters belong to Georgian
+There are 3 characters belong to General Punctuation
+There are 1 characters belong to Mathematical Operators
+Most characters belong to Georgian, there have 1088 characters of of this set in this file
