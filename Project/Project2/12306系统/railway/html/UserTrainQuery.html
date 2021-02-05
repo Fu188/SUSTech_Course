@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserTrainQuery</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../library/citySelect/css/city-select.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.8.1/jquery.js"></script>
+    <script src="../library/laydate/laydate.js"></script>
+</head>
+<style>
+    .navigation_bar{
+        background: #ececec;
+    }
+
+    .navigation_text{
+        font-size: 20px;
+    }
+
+    .head_text{
+        font-size: 22px;
+        margin-top: 23px;
+        text-align: right;
+        color: black;
+        font-family: Microsoft YaHei;
+    }
+    .head_input{
+        margin-top: 15px;
+        outline-style: none ;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 10px 0px;
+        text-align: center;
+        font-size: 15px;
+        width: 200px;
+        cursor: pointer;
+    }
+
+    .login-button {
+        margin-top: 16px;
+        padding: 10px 0px;
+        width: 145px;
+        border-width: 0px;
+        border-radius: 3px;
+        background: #1E90FF;
+        cursor: pointer;
+        outline: none;
+        font-family: Microsoft YaHei;
+        color: white;
+        font-size: 20px;
+    }
+    .login-button:hover {
+        background: #5599FF;
+    }
+
+    .calendar {
+        background: #ECECEC;
+        padding: 20px 0px;
+        width: 12.25%;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-family: MicroSoft YaHei;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+
+    .calendar:hover{
+        background: #0099cc;
+    }
+
+    .left_triangle {
+        transform: translateY(10%);
+        height: inherit;
+        background: #ECECEC;
+        width: 6%;
+        outline: none;
+        cursor: pointer;
+        border-style: solid;
+        border-width: 30px 30px 30px 0;
+        border-color: transparent #CCCCCC transparent transparent;
+    }
+
+    .left_triangle:hover{
+        border-color: transparent #007bff transparent transparent;
+    }
+
+    .right_triangle {
+        transform: translateY(10%);
+        height: inherit;
+        background: #ECECEC;
+        width: 6%;
+        outline: none;
+        cursor: pointer;
+        border-style: solid;
+        border-width: 30px 0 30px 30px;
+        border-color: transparent transparent transparent #CCCCCC;
+    }
+
+    .right_triangle:hover{
+        border-color: transparent transparent transparent #007bff;
+    }
+</style>
+<script>
+    <!--To change currentdate-->
+    function GetQueryString(key){
+        var reg = new RegExp("(^|&)"+key+"=([^&]*)(&|$)");
+        var result = window.location.search.substr(1).match(reg);
+        return result?decodeURIComponent(result[2]):null;
+    }
+
+    var currentdate;
+    var week = new Array("周日",'周一','周二','周三','周四','周五','周六');
+
+    function getDate(x) {
+        var tempDate = new Date(currentdate)
+        tempDate.setDate(tempDate.getDate()+x)
+        var day = tempDate.getDate()
+        var month = tempDate.getMonth()+1
+        var info = month+'-'+day+'<br>'+week[tempDate.getDay()]
+        return info
+    }
+
+    function display() {
+        if(!GetQueryString('dptDate')){
+            currentdate = new Date()
+        }else{
+            currentdate = new Date(GetQueryString('dptDate'))
+        }
+        document.getElementById('c1').innerHTML=getDate(-3)
+        document.getElementById('c2').innerHTML=getDate(-2)
+        document.getElementById('c3').innerHTML=getDate(-1)
+        document.getElementById('c4').innerHTML=getDate(0)
+        document.getElementById('c5').innerHTML=getDate(1)
+        document.getElementById('c6').innerHTML=getDate(2)
+        document.getElementById('c7').innerHTML=getDate(3)
+        document.getElementById('dateInfo').innerHTML = GetQueryString('dptDate')
+        document.getElementById('trainInfo').innerHTML = GetQueryString('StationNo')
+    }
+
+    function changeDate(x){
+        currentdate = currentdate.setDate(currentdate.getDate()+x);
+        currentdate = new Date(currentdate);
+        currentdate = currentdate.getFullYear()+'-'+(currentdate.getMonth()+1)+'-'+currentdate.getDate();
+        getStationVal(x);
+    }
+
+    function getStationVal(x) {
+        if(document.getElementById('StationNo').value==''){
+            document.getElementById('StationNo').value = GetQueryString('StationNo');
+        }
+        if(x==0){
+            if(document.getElementById('test1').value==''){
+                document.getElementById('test1').value = GetQueryString('dptDate');
+            }
+        }else{
+            document.getElementById('test1').value = currentdate
+        }
+    }
+</script>
+<body onload="display()">
+<!--导航栏-->
+<div>
+    <a href="../Login.html">
+        <img style="max-height:100px;overflow:hidden;" src="../images/logo.png" alt="">
+    </a>
+    <ul class="nav nav-pills nav-justified">
+        <li class="navigation_bar">
+            <a class="navigation_text" href="UserQuery.html">车票查询</a>
+        </li>
+        <li class="active">
+            <a class="navigation_text" href="UserTrainQuery.html">车次查询</a>
+        </li>
+        <li class="navigation_bar">
+            <a class="navigation_text" href="UserBuy.html">购票服务</a>
+        </li>
+        <li class="navigation_bar">
+            <a class="navigation_text" href="UserOrderQuery.html">订单查询</a>
+        </li>
+    </ul>
+</div>
+<div style="height: 20px"></div>
+
+<form name="myForm" action="UserTrainQuery.html?dptDate=" method="get">
+    <div class="row clearfix" style="height:70px;background: #ececec;">
+        <div class="col-md-2 column"></div>
+        <div class="col-md-3 column">
+            <div class="row clearfix" style="height: inherit">
+                <div class="col-md-4 column" style="height:inherit;">
+                    <div class="head_text">
+                        <p>车次编号</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-md-8 column" style="height:inherit;">
+                        <input type="text" id="StationNo" class="head_input" name="StationNo" placeholder="例如:K1348">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 column">
+            <div class="row clearfix" style="height: inherit">
+                <div class="col-md-4 column" style="height:inherit;">
+                    <div class="head_text">
+                        <p>出发日期</p>
+                    </div>
+                </div>
+                <div class="col-md-8 column" style="height:inherit;">
+                    <input type="text" id="test1" class="head_input" name="dptDate">
+                    <script>
+                        laydate.render({
+                            elem: '#test1'
+                            ,theme: 'molv'
+                            ,format:'yyyy-MM-dd'
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 column">
+            <button class="login-button" onclick="getStationVal(0)">查询</button>
+        </div>
+        <div class="col-md-1 column"></div>
+    </div>
+
+    <div style="height: 103px;display: table-cell;vertical-align: middle;font-size: 40px;">
+        <table>
+            <th width="70px"></th>
+            <th>
+                <p id="trainInfo"></p>
+            </th>
+            <th>
+                <img style="max-height: 100px;max-width:50px;overflow: hidden;" src="../images/blank.png" alt="">
+            </th>
+            <th>
+                <p id="dateInfo" style="color: #0099cc;font-size: 30px;transform: translateY(30%)"></p>
+            </th>
+        </table>
+
+    </div>
+
+    <div style="height: 2px;background:#CCCCCC"></div>
+    <div style="background: #ECECEC;width: inherit;">
+        <table>
+            <tr>
+                <button class="left_triangle" onclick="changeDate(-7)"></button>
+            </tr>
+            <tr>
+                <button class="calendar" id="c1" onclick="changeDate(-3)">04-22<br>周三</button>
+                <button class="calendar" id="c2" onclick="changeDate(-2)">04-23<br>周四</button>
+                <button class="calendar" id="c3" onclick="changeDate(-1)">04-24<br>周五</button>
+                <button class="calendar" id="c4" onclick="changeDate(0)" style="background: #0099cc;color: white">04-25<br>周六</button>
+                <button class="calendar" id="c5" onclick="changeDate(1)">04-27<br>周日</button>
+                <button class="calendar" id="c6" onclick="changeDate(2)">04-28<br>周一</button>
+                <button class="calendar" id="c7" onclick="changeDate(3)">04-29<br>周二</button>
+            </tr>
+            <tr>
+                <button class="right_triangle" onclick="changeDate(7)"></button>
+            </tr>
+        </table>
+    </div>
+</form>
+
+<div style="height: 2px;background:#CCCCCC"></div>
+<div style="height: 50px;width:2000px;background: #d2d2d2;display: table-cell;vertical-align: middle;font-size: 20px;">
+    <table>
+        <th style="width: 150px;text-align: center">
+            <p>车次信息</p>
+        </th>
+        <th style="width: 140px"></th>
+        <th style="width: 180px;text-align: center">
+            <p>出发站/时间</p>
+        </th>
+        <th style="width: 180px;text-align: center">
+            <p>运行时长</p>
+        </th>
+        <th style="width: 180px;text-align: center">
+            <p>到达站/时间</p>
+        </th>
+        <th style="width: 100px"></th>
+        <th style="width: 160px;text-align: center">
+            <p>座席</p>
+        </th>
+        <th style="width: 160px;text-align: center">
+            <p>参考价</p>
+        </th>
+        <th style="width: 50px"></th>
+        <th style="width: 100px;text-align: center">
+            <p>余票</p>
+        </th>
+        <th style="width: 120px"></th>
+    </table>
+</div>
+<div style="height: 2px;background:#CCCCCC"></div>
+<!--replace-->
+</body>
+</html>

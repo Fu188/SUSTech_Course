@@ -1,0 +1,1 @@
+// Converted to SCSS. If you want to grab just the CSS, click the (SCSS) on the css window over there <-- . That will list out the compiled css for you to use. Grab all the css between the comments and the html between the comments and it should work like a champ anywhere you place it.

@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AdminDataManage</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../library/laydate/laydate.js"></script>
+</head>
+<style>
+    .navigation_bar {
+        background: #ececec;
+    }
+
+    .navigation_text {
+        font-size: 20px;
+    }
+
+    /* Custom Styles */
+    ul.nav-tabs {
+        width: 140px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    }
+
+    ul.nav-tabs li {
+        margin: 0;
+        border-top: 1px solid #ddd;
+    }
+
+    ul.nav-tabs li:first-child {
+        border-top: none;
+    }
+
+    ul.nav-tabs li a {
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 0;
+    }
+
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover {
+        color: #fff;
+        background: #0088cc;
+        border: 1px solid #0088cc;
+    }
+
+    ul.nav-tabs li:first-child a {
+        border-radius: 4px 4px 0 0;
+    }
+
+    ul.nav-tabs li:last-child a {
+        border-radius: 0 0 4px 4px;
+    }
+
+    ul.nav-tabs.affix {
+        top: 30px; /* Set the top position of pinned element */
+    }
+
+    .login-button {
+        padding: 8px 0px;
+        width: 180px;
+        border-width: 0px;
+        border-radius: 3px;
+        background: #1E90FF;
+        cursor: pointer;
+        outline: none;
+        font-family: Microsoft YaHei;
+        color: white;
+        font-size: 20px;
+    }
+
+    .login-button:hover {
+        background: #5599FF;
+    }
+</style>
+<script>
+    <!--alert-->
+    $(document).ready(function () {
+        $("#myNav").affix({
+            offset: {
+                top: 125
+            }
+        });
+    });
+
+    function del_log()
+    {
+        window.location.href='AdminDataManage.html?del_log=1';
+    }
+</script>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div>
+    <a href="../Login.html">
+        <img style="max-height:100px;overflow:hidden;" src="../images/logo.png" alt="">
+    </a>
+    <ul class="nav nav-pills nav-justified">
+        <li class="navigation_bar">
+            <a class="navigation_text" href="AdminQuery.html">车票查询</a>
+        </li>
+        <li class="navigation_bar">
+            <a class="navigation_text" href="AdminTrainQuery.html">车次查询</a>
+        </li>
+        <li class="navigation_bar">
+            <a class="navigation_text" href="AdminOrderManage.html">订单管理</a>
+        </li>
+        <li class="active">
+            <a class="navigation_text" href="AdminDataManage.html">数据管理</a>
+        </li>
+    </ul>
+</div>
+<div style="height: 50px"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+                <li class="active"><a href="#section-1">用户管理</a></li>
+                <li><a href="#section-2">增加车站</a></li>
+                <li><a href="#section-3">删除车站</a></li>
+                <li><a href="#section-4">增加车次</a></li>
+                <li><a href="#section-5">删除车次</a></li>
+                <li><a href="#section-6">更新信息</a></li>
+                <li><a href="#section-7">查看日志</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-9">
+            <div id="section-1" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="font-size: 35px">用户管理</h3>
+                </div>
+                <div class="panel-body">
+                    <table>
+                        <tr style="background: #d2d2d2">
+                            <th style="width: 200px;text-align: center">
+                                <p>用户id</p>
+                            </th>
+                            <th style="width: 200px;text-align: center">
+                                <p>用户名</p>
+                            </th>
+                            <th style="width: 300px;text-align: center">
+                                <p>身份证号</p>
+                            </th>
+                            <th style="width: 200px;text-align: center">
+                                <p>手机号</p>
+                            </th>
+                        </tr>
+                        <tr style="height: 10px">
+                            <!--服务器获取数据-->
+                            <!--replace-->
+                            <!-- end -->
+                        <tr>
+                            <form action="AdminDataManage.html" method="get">
+                                <table>
+                                    <h3>修改用户名</h3>
+                                    <hr>
+                                    <tr>
+                                        <th>
+                                            <div class="input-group input-group-lg" style="width: 370px">
+                                                <span class="input-group-addon">用户id</span>
+                                                <input type="text" name="userid"
+                                                       onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                       class="form-control"
+                                                       placeholder="例如:6">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr style="height: 20px"></tr>
+                                    <tr>
+                                        <th>
+                                            <div class="input-group input-group-lg" style="width: 370px">
+                                                <span class="input-group-addon">用户名</span>
+                                                <input type="text" name="username" class="form-control"
+                                                       placeholder="例如:你的名字">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div style="transform: translateX(150%)">
+                                                <button class="login-button">更新</button>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </form>
+                        </tr>
+                        <tr>
+                            <form action="AdminDataManage.html" method="get">
+                                <table>
+                                    <h3>修改身份证号</h3>
+                                    <hr>
+                                    <tr>
+                                        <th>
+                                            <div class="input-group input-group-lg" style="width: 370px">
+                                                <span class="input-group-addon">用户id</span>
+                                                <input type="text" name="userid"
+                                                       onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                       class="form-control"
+                                                       placeholder="例如:6">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr style="height: 20px"></tr>
+                                    <tr>
+                                        <th>
+                                            <div class="input-group input-group-lg" style="width: 370px">
+                                                <span class="input-group-addon">身份证号</span>
+                                                <input type="text" name="user_id_card_no" class="form-control"
+                                                       placeholder="请输入18位身份证号码">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div style="transform: translateX(150%)">
+                                                <button class="login-button">更新</button>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </form>
+                        </tr>
+                        <tr>
+                            <form action="AdminDataManage.html" method="get">
+                                <table>
+                                    <h3>修改手机号</h3>
+                                    <hr>
+                                    <tr>
+                                        <th>
+                                            <div class="input-group input-group-lg" style="width: 370px">
+                                                <span class="input-group-addon">用户id</span>
+                                                <input type="text" name="userid" class="form-control"
+                                                       onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                       placeholder="例如:6">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr style="height: 20px"></tr>
+                                    <tr>
+                                        <th>
+                                            <div class="input-group input-group-lg" style="width: 370px">
+                                                <span class="input-group-addon">手机号</span>
+                                                <input type="text" name="phone_number" class="form-control"
+                                                       maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                       placeholder="请输入11位手机号码">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div style="transform: translateX(150%)">
+                                                <button class="login-button">更新</button>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </form>
+                        </tr>
+                        <tr>
+                            <form action="AdminDataManage.html" method="get">
+                                <table>
+                                    <h3>注销用户</h3>
+                                    <hr>
+                                    <tr>
+                                        <th>
+                                            <div class="input-group input-group-lg" style="width: 370px">
+                                                <span class="input-group-addon">用户id</span>
+                                                <input type="text" name="userid" class="form-control"
+                                                       onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                       placeholder="例如:6">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div style="transform: translateX(150%)">
+                                                <button class="login-button">注销</button>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </form>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="section-2" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="font-size: 35px">增加车站</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="AdminDataManage.html" method="get">
+                        <table>
+                            <th>
+                                <div class="input-group input-group-lg" style="width: 370px">
+                                    <span class="input-group-addon">车站名</span>
+                                    <input type="text" name="add_station_name" class="form-control"
+                                           placeholder="例如:北京南">
+                                </div>
+                            </th>
+                            <th>
+                                <div style="transform: translateX(150%)">
+                                    <button class="login-button">添加</button>
+                                </div>
+                            </th>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div id="section-3" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="font-size: 35px">删除车站</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="AdminDataManage.html" method="get">
+                        <table>
+                            <th>
+                                <div class="input-group input-group-lg" style="width: 370px">
+                                    <span class="input-group-addon">车站名</span>
+                                    <input type="text" name="del_station_name" class="form-control"
+                                           placeholder="例如:北京南">
+                                </div>
+                            </th>
+                            <th>
+                                <div style="transform: translateX(150%)">
+                                    <button class="login-button">删除</button>
+                                </div>
+                            </th>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div id="section-4" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="font-size: 35px">增加车次</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="AdminDataManage.html" method="get">
+                        <table>
+                            <tr>
+                                <div class="input-group input-group-lg" style="width: 370px">
+                                    <span class="input-group-addon">车次号</span>
+                                    <input type="text" name="train_no" class="form-control"
+                                           placeholder="例如:D9999">
+                                </div>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">出发日期</span>
+                                        <input type="text" name="start_date" id="test1" class="form-control"
+                                               placeholder="例如:2020-5-20">
+                                        <script>
+                                            laydate.render({
+                                                elem: '#test1'
+                                                , theme: 'molv'
+                                                , format: 'yyyy-MM-dd'
+                                            });
+                                        </script>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">添加车站</span>
+                                        <input type="text" name="station_name" class="form-control"
+                                               placeholder="例如:X车站">
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">到达时间</span>
+                                        <input type="text" name="arr_time" class="form-control"
+                                               placeholder="例如:18:20(若为起始站，请输入null)">
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">出发时间</span>
+                                        <input type="text" name="start_time" class="form-control"
+                                               placeholder="例如:19:30(若为终点站，请输入null)">
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">到达天数</span>
+                                        <input type="text" name="arr_day" class="form-control"
+                                               onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                               placeholder="例如:1">
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">检票口</span>
+                                        <input type="text" name="entrance" class="form-control"
+                                               placeholder="例如:K18">
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">里程</span>
+                                        <input type="text" name="interval_mile" class="form-control"
+                                               placeholder="例如:6666.66">
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">一等座金额</span>
+                                        <input type="text" name="first_price" class="form-control"
+                                               placeholder="例如:888.8">
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">一等座余票</span>
+                                        <input type="text" name="first_remain" class="form-control"
+                                               onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                               placeholder="例如:300">
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">二等座金额</span>
+                                        <input type="text" name="second_price" class="form-control"
+                                               placeholder="例如:666.6">
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">二等座余票</span>
+                                        <input type="text" name="second_remain" class="form-control"
+                                               onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                               placeholder="例如:300">
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="transform: translateX(150%)">
+                                        <button class="login-button">添加</button>
+                                    </div>
+                                </th>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div id="section-5" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="font-size: 35px">删除车次</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="AdminDataManage.html" method="get">
+                        <table>
+                            <div class="input-group input-group-lg" style="width: 370px;">
+                                <span class="input-group-addon">车次号</span>
+                                <input type="text" name="train_no" class="form-control" placeholder="例如:D9999">
+                            </div>
+                            <tr style="height: 20px"></tr>
+                            <tr>
+                                <th>
+                                    <div class="input-group input-group-lg" style="width: 370px">
+                                        <span class="input-group-addon">出发日期</span>
+                                        <input type="text" name="start_date" id="test2" class="form-control"
+                                               placeholder="例如:2020-5-20">
+                                        <script>
+                                            laydate.render({
+                                                elem: '#test2'
+                                                , theme: 'molv'
+                                                , format: 'yyyy-MM-dd'
+                                            });
+                                        </script>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="transform: translateX(150%)">
+                                        <button class="login-button">删除</button>
+                                    </div>
+                                </th>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div id="section-6" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="font-size: 35px">更新信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <h3>加入车站</h3>
+                        <hr>
+                        <form action="AdminDataManage.html" method="get">
+                            <table>
+                                <div class="input-group input-group-lg" style="width: 370px">
+                                    <span class="input-group-addon">车次号</span>
+                                    <input type="text" name="train_no" class="form-control" placeholder="例如:D9999">
+                                </div>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">出发日期</span>
+                                            <input type="text" name="start_date" id="test3" class="form-control"
+                                                   placeholder="例如:2020-5-20">
+                                            <script>
+                                                laydate.render({
+                                                    elem: '#test3'
+                                                    , theme: 'molv'
+                                                    , format: 'yyyy-MM-dd'
+                                                });
+                                            </script>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">车站名</span>
+                                            <input type="text" name="station_name" class="form-control"
+                                                   placeholder="例如:X车站">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">车站编号</span>
+                                            <input type="text" name="station_no" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:3">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">到达时间</span>
+                                            <input type="text" name="arr_time" class="form-control"
+                                                   placeholder="例如:18:20(若为起始站，请输入null)">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">出发时间</span>
+                                            <input type="text" name="start_time" class="form-control"
+                                                   placeholder="例如:19:30(若为终点站，请输入null)">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">到达天数</span>
+                                            <input type="text" name="arr_day" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:1">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">检票口</span>
+                                            <input type="text" name="entrance" class="form-control"
+                                                   placeholder="例如:K18">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">里程</span>
+                                            <input type="text" name="interval_mile" class="form-control"
+                                                   placeholder="例如:6666.66">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">一等座金额</span>
+                                            <input type="text" name="first_price" class="form-control"
+                                                   placeholder="例如:888.8">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">一等座余票</span>
+                                            <input type="text" name="first_remain" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:300">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">二等座金额</span>
+                                            <input type="text" name="second_price" class="form-control"
+                                                   placeholder="例如:666.6">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">二等座余票</span>
+                                            <input type="text" name="second_remain" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:300">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div style="transform: translateX(150%)">
+                                            <button class="login-button">更新</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div>
+                        <h3>删除车站</h3>
+                        <hr>
+                        <form action="AdminDataManage.html" method="get">
+                            <table>
+                                <div class="input-group input-group-lg" style="width: 370px">
+                                    <span class="input-group-addon">车次号</span>
+                                    <input type="text" name="train_no" class="form-control" placeholder="例如:D9999">
+                                </div>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">出发日期</span>
+                                            <input type="text" name="start_date" id="test4" class="form-control"
+                                                   placeholder="例如:2020-5-20">
+                                            <script>
+                                                laydate.render({
+                                                    elem: '#test4'
+                                                    , theme: 'molv'
+                                                    , format: 'yyyy-MM-dd'
+                                                });
+                                            </script>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">车站编号</span>
+                                            <input type="text" name="del_station_no" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:5">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div style="transform: translateX(150%)">
+                                            <button class="login-button">更新</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div>
+                        <h3>更新价格</h3>
+                        <hr>
+                        <form action="AdminDataManage.html" method="get">
+                            <table>
+                                <div class="input-group input-group-lg" style="width: 370px">
+                                    <span class="input-group-addon">车次号</span>
+                                    <input type="text" name="train_no" class="form-control" placeholder="例如:D9999">
+                                </div>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">出发日期</span>
+                                            <input type="text" name="start_date" id="test5" class="form-control"
+                                                   placeholder="例如:2020-5-20">
+                                            <script>
+                                                laydate.render({
+                                                    elem: '#test5'
+                                                    , theme: 'molv'
+                                                    , format: 'yyyy-MM-dd'
+                                                });
+                                            </script>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">车站编号</span>
+                                            <input type="text" name="station_no" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:5">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">座位席别</span>
+                                            <select name="seat_type" class="form-control">
+                                                <option>一等座</option>
+                                                <option>二等座</option>
+                                            </select>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">金额价格</span>
+                                            <input type="text" name="price" class="form-control"
+                                                   placeholder="例如:666.6">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div style="transform: translateX(150%)">
+                                            <button class="login-button">更新</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div>
+                        <h3>更新时间</h3>
+                        <hr>
+                        <form action="AdminDataManage.html" method="get">
+                            <table>
+                                <div class="input-group input-group-lg" style="width: 370px">
+                                    <span class="input-group-addon">车次号</span>
+                                    <input type="text" name="train_no" class="form-control" placeholder="例如:D9999">
+                                </div>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">出发日期</span>
+                                            <input type="text" name="start_date" id="test6" class="form-control"
+                                                   placeholder="例如:2020-5-20">
+                                            <script>
+                                                laydate.render({
+                                                    elem: '#test6'
+                                                    , theme: 'molv'
+                                                    , format: 'yyyy-MM-dd'
+                                                });
+                                            </script>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">车站编号</span>
+                                            <input type="text" name="arr_station_no" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:5">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px">
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">到达天数</span>
+                                            <input type="text" name="arr_day" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:5">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px">
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">到达时间</span>
+                                            <input type="text" name="arr_time" class="form-control"
+                                                   placeholder="例如:18:30(若为起始站，请输入null)">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px">
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">出发时间</span>
+                                            <input type="text" name="dpt_time" class="form-control"
+                                                   placeholder="例如:18:35(若为终点站，请输入null)">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div style="transform: translateX(150%)">
+                                            <button class="login-button">更新</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div>
+                        <h3>更新余票</h3>
+                        <hr>
+                        <form action="AdminDataManage.html" method="get">
+                            <table>
+                                <div class="input-group input-group-lg" style="width: 370px">
+                                    <span class="input-group-addon">车次号</span>
+                                    <input type="text" name="train_no" class="form-control" placeholder="例如:D9999">
+                                </div>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">出发日期</span>
+                                            <input type="text" name="start_date" id="test7" class="form-control"
+                                                   placeholder="例如:2020-5-20">
+                                            <script>
+                                                laydate.render({
+                                                    elem: '#test7'
+                                                    , theme: 'molv'
+                                                    , format: 'yyyy-MM-dd'
+                                                });
+                                            </script>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">车站编号</span>
+                                            <input type="text" name="station_no" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:X车站">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px;">
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">座位席别</span>
+                                            <select name="seat_type" class="form-control">
+                                                <option>一等座</option>
+                                                <option>二等座</option>
+                                            </select>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px">
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">余票</span>
+                                            <input type="text" name="remain" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:30">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div style="transform: translateX(150%)">
+                                            <button class="login-button">更新</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div>
+                        <h3>更新检票口</h3>
+                        <hr>
+                        <form action="AdminDataManage.html" method="get">
+                            <table>
+                                <div class="input-group input-group-lg" style="width: 370px">
+                                    <span class="input-group-addon">车次号</span>
+                                    <input type="text" name="train_no" class="form-control" placeholder="例如:D9999">
+                                </div>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">出发日期</span>
+                                            <input type="text" name="start_date" id="test8" class="form-control"
+                                                   placeholder="例如:2020-5-20">
+                                            <script>
+                                                laydate.render({
+                                                    elem: '#test8'
+                                                    , theme: 'molv'
+                                                    , format: 'yyyy-MM-dd'
+                                                });
+                                            </script>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">车站编号</span>
+                                            <input type="text" name="station_no" class="form-control"
+                                                   onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                   placeholder="例如:X车站">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="height: 20px"></tr>
+                                <tr>
+                                    <th>
+                                        <div class="input-group input-group-lg" style="width: 370px">
+                                            <span class="input-group-addon">检票口</span>
+                                            <input type="text" name="entrance" class="form-control"
+                                                   placeholder="例如:K18">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div style="transform: translateX(150%)">
+                                            <button class="login-button">更新</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div id="section-7" class="panel panel-default">
+                <div class="panel-heading">
+                    <font class="panel-title" style="font-size: 35px">查看日志</font>
+
+                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#entry_id"
+                            style="padding: 10px 0px;float: right;width: 180px;border-width: 0px;
+                            border-radius: 3px;background: #1E90FF;cursor: pointer;
+                            outline: none;font-family: Microsoft YaHei;color: white;font-size: 20px;">清空日志
+                    </button>
+                </div>
+                <!-- 模态框（Modal） -->
+                <div class="modal fade" id="entry_id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    再次确认是否删除日志
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                确认删除后,该操作不可恢复
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" onclick="del_log()">
+                                    确认
+                                </button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                    取消
+                                </button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <div class="panel-body">
+                    <table>
+                        <tr style="background: #d2d2d2">
+                            <th style="width: 200px;text-align: center">
+                                <p>时间</p>
+                            </th>
+                            <th style="width: 100px;text-align: center">
+                                <p>表</p>
+                            </th>
+							<th style="width: 100px;text-align: center">
+                                <p>主键值</p>
+                            </th>
+                            <th style="width: 100px;text-align: center">
+                                <p>列</p>
+                            </th>
+                            <th style="width: 175px;text-align: center">
+                                <p>原始值</p>
+                            </th>
+                            <th style="width: 175px;text-align: center">
+                                <p>当前值</p>
+                            </th>
+                            <th style="width: 100px;text-align: center">
+                                <p>操作</p>
+                            </th>
+                            <th style="width: 100px;text-align: center">
+                                <p>操作者</p>
+                            </th>
+                        </tr>
+                        <tr style="height: 10px">
+                            <!--服务器获取数据-->
+                            <!--replace-->
+                            <!-- end -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
