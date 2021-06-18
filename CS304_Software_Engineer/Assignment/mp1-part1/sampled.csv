@@ -1,0 +1,12 @@
+query_url,keywords,close_url,usefulness,rank_usefulness,label_usefulness
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/springfox/springfox/issues/3303,Y,1,Debug
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/lucko/LuckPerms/issues/1330,N,,Not relevant
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/eclipse-archived/smarthome/issues/3607,N,,Not relevant
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/Flameish/Novel-Grabber/issues/82,N,,Not result
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/rzwitserloot/lombok/issues/1957,N,,Not relevant
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/pravega/schema-registry/pull/34,N,,No result
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/jackbboy/csipsimple/issues/1136,Y,3,Debug
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/juniorlm87/csipsimple/issues/1136,N,,No result
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/paulhsu/csipsimple/issues/1136,N,,Not relevant
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/Sanjivkumarroshan/csipsimple/issues/1136,N,,No result
+https://github.com/JabRef/jabref/issues/7442,groups tags suddenly lost,https://github.com/jack0402/csipsimple/issues/1136,Y,2,Debug

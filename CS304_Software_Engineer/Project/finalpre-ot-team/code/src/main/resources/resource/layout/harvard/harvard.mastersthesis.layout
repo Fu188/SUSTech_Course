@@ -1,0 +1,7 @@
+\format[Authors(LastFirst,Initials,FullPunc,Comma,And,inf),RTFChars]{\author} (\year), 
+'\format[RTFChars]{\title}'
+\begin{school}
+, Master's thesis, \format[RTFChars]{\school}
+\end{school}.
+\\par
+\\par

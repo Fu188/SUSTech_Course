@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="30.0dip" android:layout_marginRight="30.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditText android:id="@id/alertSearchEditText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/type_to_search" android:inputType="text">
+        <requestFocus />
+    </EditText>
+    <RelativeLayout android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ListView android:id="@id/alertSearchListView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textFilterEnabled="true" android:cacheColorHint="@color/orange" android:layout_alignParentTop="true" android:fastScrollEnabled="true" android:fadeScrollbars="true" android:layout_alignParentStart="true" />
+        <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="@color/red" android:gravity="center" android:id="@id/empty" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Not found!" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</LinearLayout>
