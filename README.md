@@ -34,3 +34,14 @@ This is a code library, which includes some projects, assignments in coarses. Yo
   - [Assignment](https://github.com/Fu188/SUSTech_Course/tree/master/CS309_OOAD)
   - [Project Tower Defense](https://github.com/Fu188/TowerDefense)
   - [Final Review](https://github.com/Fu188/SUSTech_Course/tree/master/CS309_OOAD/Review)
+
+:computer: [OS](https://github.com/Fu188/SUSTech_Course/tree/master/CS302_OS)
+  - [Lab Assignment](https://github.com/Fu188/SUSTech_Course/tree/master/CS302_OS/Report)
+  - [Project Pintos](https://github.com/Fu188/Pintos)
+  - [Project Process_memory_tracker](https://github.com/Fu188/process_memory_tracker)
+
+:computer: [Software Engineer](https://github.com/Fu188/SUSTech_Course/tree/master/CS304_Software_Engineer)
+  - [Assignment](https://github.com/Fu188/SUSTech_Course/tree/master/CS304_Software_Engineer/Assignment)
+  - [Lab](https://github.com/Fu188/SUSTech_Course/tree/master/CS304_Software_Engineer/Lab)
+  - [Project](https://github.com/Fu188/SUSTech_Course/tree/master/CS304_Software_Engineer/Project)
+  - [Final Review](https://github.com/Fu188/SUSTech_Course/blob/master/CS304_Software_Engineer/Final%20Review.md)
