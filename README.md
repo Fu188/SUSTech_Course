@@ -1,7 +1,7 @@
 # SUSTech_Course
 
 ### Introduction
-This is a code library, which includes some projects, assignments in coarses. You can click the link and redirect to the corresponding coarse's repo.
+This is a code library, which includes some projects, assignments in coarses. You can click the link and redirect to the corresponding course's repo.
 
 :computer: [Data Structure](https://github.com/Fu188/SUSTech_Course/tree/master/CS203_Data_Structure)
 
